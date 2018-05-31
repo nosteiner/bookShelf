@@ -1,0 +1,32 @@
+
+<mat-card flex="30" class="movie-card">
+  <img mat-card-sm-image src="http://static.comicvine.com/uploads/original/10/104544/4068923-tarzan-wallpaper-walt-disneys-tarzan-6248938-1024-768.jpg">
+  <mat-card-content>
+    <mat-card-title>
+      <h3>Tarzan</h3>
+    </mat-card-title>
+    <p>1999</p>
+    <p>The movie is about the life of Tarzan. Tarzan was a small orphan who was raised by an ape named Kala since he was a child.
+      He believed that this was his family, but on an expedition Jane Porter is rescued by Tarzan.</p>
+    <p>
+  </mat-card-content>
+<button mat-button (click)="addToMyCollection()">add to my collection</button>
+</mat-card>
+
+
+<!-- <mat-card flex="30" *ngFor="let movie of movies" class="movie-card">
+
+      <mat-card-header>
+        <img mat-card-sm-image src="{{movie.img}}">
+      </mat-card-header>
+    
+      <mat-card-content>
+        <mat-card-title>
+          <h3>{{ idx + 1 }} - {{ movie.title }}</h3>
+        </mat-card-title>
+        <p>{{ movie.year }}</p>
+        <p>{{movie.descrShort }}</p>
+        <p>
+      </mat-card-content>
+    
+    </mat-card> -->
