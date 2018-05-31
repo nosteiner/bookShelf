@@ -8,12 +8,20 @@ import { MoviesService } from '../movies.service';
   styleUrls: ['./movies.component.scss']
 })
 export class MoviesComponent implements OnInit {
-  movies = new Array<Movie>();
-  constructor() { }
 
-  ngOnInit() {
+  movies = new Array<Movie>();
+  
+
+  constructor(private moviesService : MoviesService) {
+
+  this.movies = moviesService.getMovies()
+    
   }
-  removeMovie(index) {
-    this.movies.splice(index, 1);
+  ngOnInit() {
+    console.log(this.movies)
+  }
+
+  blockMovie() {
+    
   }
 }

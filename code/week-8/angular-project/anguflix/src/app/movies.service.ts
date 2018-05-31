@@ -16,10 +16,14 @@ export class MoviesService {
 
   constructor() { }
 
-  getMovies() : Movie[] {
-    return MOVIES;
+  getMovies() : Array<Movie>{
+    return MOVIES
   }
   getMovie(id : number) {
     return this.getMovies().find((movie) => movie.id == id);
+  }
+
+  addToMyCollection(){
+
   }
 }

@@ -1,14 +1,14 @@
 <mat-card>
-    <mat-card-title>All movies</mat-card-title>
+  <mat-card-title>All movies</mat-card-title>
 
 
-<app-filter></app-filter>
+  <app-filter></app-filter>
 </mat-card>
+<div class="container">
+ 
+    <div class="cards-container" flex="30" layout-wrap layout="row" *ngFor="let movie of movies">
 
-  <div class="cards-container" layout-wrap layout="row">
-   
-<app-card></app-card>
-<app-card></app-card>
-<app-card></app-card>
+      <app-card [movie]="movie"></app-card>
+    </div>
   
 </div>
