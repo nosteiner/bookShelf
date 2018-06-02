@@ -24,4 +24,8 @@ export class MoviesComponent implements OnInit {
   blockMovie() {
     
   }
+
+  handleAddMovie(movie : Movie) {
+    this.moviesService.addToMyCollection(movie);
+  }
 }

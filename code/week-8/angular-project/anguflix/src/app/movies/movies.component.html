@@ -7,8 +7,7 @@
 <div class="container">
  
     <div class="cards-container" flex="30" layout-wrap layout="row" *ngFor="let movie of movies">
-
-      <app-card [movie]="movie"></app-card>
+      <app-card [movie]="movie" (selectedMovieEventEmitter)="handleAddMovie($event)"></app-card>
     </div>
   
 </div>

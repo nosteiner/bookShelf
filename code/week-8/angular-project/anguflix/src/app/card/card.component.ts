@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, EventEmitter, Output, OnChanges } from '@angular/core';
-import {Movie} from '../Movie'
+import { Movie } from '../Movie'
 import { MoviesService } from '../movies.service';
 
 @Component({
@@ -8,12 +8,20 @@ import { MoviesService } from '../movies.service';
   styleUrls: ['./card.component.scss']
 })
 
-  export class CardComponent implements OnInit {
+export class CardComponent implements OnInit {
 
-    constructor() { }
-    @Input() movie : Movie = new Movie
-    
-    ngOnInit() {
-    }
-  
+  constructor(private moviesService: MoviesService) {
+
   }
+
+  @Input() movie: Movie = new Movie
+  @Output() selectedMovieEventEmitter: EventEmitter<Movie> = new EventEmitter();
+
+  ngOnInit() {
+  }
+
+  addMovie(movie : Movie) {
+    
+    this.selectedMovieEventEmitter.emit(movie);
+  }
+}

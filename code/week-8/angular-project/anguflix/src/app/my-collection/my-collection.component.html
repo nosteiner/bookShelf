@@ -4,6 +4,8 @@
 
 <app-filter></app-filter>
 </mat-card>
-<div class="my-movies-container">
-    Select movies from below to add to your collection
-</div>
+<div class="container">
+    <div class="cards-container" flex="30" layout-wrap layout="row" *ngFor="let movie of movies">
+        <app-card [movie]="movie"></app-card>
+      </div>
+    </div>
