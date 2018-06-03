@@ -1,12 +1,10 @@
 <mat-card>
   <mat-card-title>All movies</mat-card-title>
-
-
-  <app-filter></app-filter>
+  <app-filter (searchEventEmmitter)="searchMovie($event)"></app-filter>
 </mat-card>
+
 <div class="container">
- 
-    <div class="cards-container" flex="30" layout-wrap layout="row" *ngFor="let movie of movies">
+    <div class="cards-container" flex="30" layout-wrap layout="row" *ngFor="let movie of movies | filter : currentSearchTerm; let i = index">
       <app-card [movie]="movie" (selectedMovieEventEmitter)="handleAddMovie($event)"></app-card>
     </div>
   

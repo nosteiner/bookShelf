@@ -2,19 +2,17 @@
       
     <form>
         <mat-form-field class="example-full-width">
-            <input matInput placeholder="Favorite food" value="Sushi">
+            <input matInput [(ngModel)]="textSearch" name="textSearch"(input)="searchMovieTitle()" placeholder="Filter movies by title">
+          
           </mat-form-field>
  
       <mat-form-field>
-          <mat-select placeholder="Favorite food">
-            <!-- <mat-option *ngFor="let food of foods" [value]="food.value">
-              {{ food.viewValue }}
-            </mat-option> -->
+          <mat-select placeholder="filter by year">
+            <mat-option *ngFor="let year of years" [value]="year.value">
+              {{ year.value }}
+            </mat-option>
           </mat-select>
         </mat-form-field>
- 
-        <button mat-button>remove</button>
 
- 
     </form>
 </div>

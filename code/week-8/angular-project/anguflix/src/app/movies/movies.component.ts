@@ -8,10 +8,10 @@ import { MoviesService } from '../movies.service';
   styleUrls: ['./movies.component.scss']
 })
 export class MoviesComponent implements OnInit {
-
+  currentSearchTerm: string;
   movies = new Array<Movie>();
+  // showselect:boolean=false;
   
-
   constructor(private moviesService : MoviesService) {
 
   this.movies = moviesService.getMovies()
@@ -19,6 +19,11 @@ export class MoviesComponent implements OnInit {
   }
   ngOnInit() {
     console.log(this.movies)
+   
+  }
+  searchMovie(textSearch: string) {
+    console.log(textSearch)
+    this.currentSearchTerm = textSearch;
   }
 
   blockMovie() {

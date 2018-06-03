@@ -7,7 +7,9 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatSelectModule} from '@angular/material/select';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatDividerModule} from '@angular/material/divider';
-
+import {MatIconModule} from '@angular/material/icon';
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
+import { FormsModule } from '@angular/forms';
 
 import { MoviesService } from './movies.service';
 import { AppComponent } from './app.component';
@@ -15,6 +17,9 @@ import { FilterComponent } from './filter/filter.component';
 import { MyCollectionComponent } from './my-collection/my-collection.component';
 import { MoviesComponent } from './movies/movies.component';
 import { CardComponent } from './card/card.component';
+import { FilterPipe } from './filter.pipe';
+
+
 
 @NgModule({
   declarations: [
@@ -23,6 +28,9 @@ import { CardComponent } from './card/card.component';
     MyCollectionComponent,
     MoviesComponent,
     CardComponent,
+    FilterPipe,
+
+
     
   ],
   imports: [
@@ -33,7 +41,10 @@ import { CardComponent } from './card/card.component';
     MatButtonModule,
     MatCardModule,
     MatInputModule,
-    MatDividerModule
+    MatDividerModule,
+    MatIconModule,
+    AngularFontAwesomeModule,
+    FormsModule
 
   ],
   providers: [MoviesService],

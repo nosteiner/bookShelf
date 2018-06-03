@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter,Input, OnInit, Output} from '@angular/core';
+
 
 @Component({
   selector: 'app-filter',
@@ -6,14 +7,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./filter.component.scss']
 })
 export class FilterComponent implements OnInit {
-  foods = [
-    {value: 'steak-0', viewValue: 'Steak'},
-    {value: 'pizza-1', viewValue: 'Pizza'},
-    {value: 'tacos-2', viewValue: 'Tacos'}
+  years = [
+    {value: 1999},
+    {value: 2003},
   ];
+  @Output() searchEventEmmitter: EventEmitter<string> = new EventEmitter();
+ @Input() textSearch: string;
+ 
   constructor() { }
 
   ngOnInit() {
   }
-
+  searchMovieTitle(){
+    this.searchEventEmmitter.emit(this.textSearch);
+}
 }

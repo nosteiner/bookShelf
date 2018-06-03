@@ -1,11 +1,21 @@
 <mat-card>
-        <mat-card-title>My Collection</mat-card-title>
-
-
-<app-filter></app-filter>
+  <mat-card-title>My Collection</mat-card-title>
+  <!-- filter -->
+  <app-filter  [textSearch]="currentSearchTerm" (searchEventEmmitter)="searchMovie($event)"></app-filter>
+  <!--tuggle remove button-->
+  <button *ngIf="movies.length > 0" (click)="toggleRemove()" color="warn" mat-button>
+    <span *ngIf="!removeControll" style="color: red">Remove</span>
+    <span *ngIf="removeControll" style="color: green">Remove</span>
+  </button>
+  <!-- cards container -->
 </mat-card>
 <div class="container">
-    <div class="cards-container" flex="30" layout-wrap layout="row" *ngFor="let movie of movies">
-        <app-card [movie]="movie"></app-card>
-      </div>
+  <h3 *ngIf="movies.length === 0">add movies to your collection</h3>
+  <div class="cards-container" flex="30" layout-wrap layout="row" *ngFor="let movie of movies | filter : currentSearchTerm; let i = index">
+    <app-card [movie]="movie"></app-card>
+   
+    <div class="button-row">
+      <button *ngIf="removeControll" (click)="remove(movie)" style="color: red" mat-button color="warn">Remove</button>
     </div>
+  </div>
+</div>

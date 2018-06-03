@@ -19,7 +19,7 @@ export class MoviesService {
   constructor() {
   }
 
-  MyCollection = Array<Movie>();
+  MyCollection : Movie[]= Array<Movie>();
 
   getMovies(): Array<Movie> {
     return MOVIES
@@ -35,5 +35,10 @@ export class MoviesService {
   getMyCollection(): Array<Movie> {
     return this.MyCollection
   }
-
+ 
+  removeFromMyCollection(movieToDelete: Movie){
+    let movieIndex = this.MyCollection.findIndex(m => m.id == movieToDelete.id);
+console.log(movieToDelete)
+    this.MyCollection.splice(movieIndex,1)
+  }
 }
