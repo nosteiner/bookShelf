@@ -1,7 +1,7 @@
 <mat-card>
   <mat-card-title>My Collection</mat-card-title>
   <!-- filter -->
-  <app-filter  [textSearch]="currentSearchTerm" (searchEventEmmitter)="searchMovie($event)"></app-filter>
+  <app-filter   (searchEventEmmitter)="searchMovie($event)"></app-filter>
   <!--tuggle remove button-->
   <button *ngIf="movies.length > 0" (click)="toggleRemove()" color="warn" mat-button>
     <span *ngIf="!removeControll" style="color: red">Remove</span>

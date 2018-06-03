@@ -12,8 +12,10 @@ export class FilterPipe implements PipeTransform {
     currentSearchTerm = currentSearchTerm.toLowerCase();
 
     return movies.filter( it => {
+  
       return it.title.toLowerCase().includes(currentSearchTerm);
     });
   }
+  
 }
 

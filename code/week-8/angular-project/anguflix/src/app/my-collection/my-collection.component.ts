@@ -9,7 +9,7 @@ import { MoviesService } from '../movies.service';
 })
 export class MyCollectionComponent implements OnInit {
   movies = Array<Movie>();
-  // showselect:boolean=false;
+
   removeControll : boolean = false;
   currentSearchTerm: string;
   constructor(private moviesService : MoviesService) { 
@@ -19,7 +19,7 @@ export class MyCollectionComponent implements OnInit {
   ngOnInit() {
   }
 
-  searchMovie(textSearch: string) {
+  searchMovie(textSearch) {
     this.currentSearchTerm = textSearch;
     console.log("noam"+this.currentSearchTerm)
   }

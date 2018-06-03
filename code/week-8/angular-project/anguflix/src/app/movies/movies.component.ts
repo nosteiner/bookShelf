@@ -10,7 +10,7 @@ import { MoviesService } from '../movies.service';
 export class MoviesComponent implements OnInit {
   currentSearchTerm: string;
   movies = new Array<Movie>();
-  // showselect:boolean=false;
+ 
   
   constructor(private moviesService : MoviesService) {
 

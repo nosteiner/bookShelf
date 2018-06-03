@@ -1,4 +1,4 @@
-import {Component, EventEmitter,Input, OnInit, Output} from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 
 @Component({
@@ -8,17 +8,23 @@ import {Component, EventEmitter,Input, OnInit, Output} from '@angular/core';
 })
 export class FilterComponent implements OnInit {
   years = [
-    {value: 1999},
-    {value: 2003},
+    { value: 1999 },
+    { value: 2003 },
+    { value: 2000 },
+    { value: 2005 }
   ];
   @Output() searchEventEmmitter: EventEmitter<string> = new EventEmitter();
- @Input() textSearch: string;
- 
+  @Input() textSearch: string;
+
+
   constructor() { }
 
   ngOnInit() {
   }
-  searchMovieTitle(){
+  searchMovieTitle() {
     this.searchEventEmmitter.emit(this.textSearch);
-}
+  }
+  searchMovieYear(year) {
+    this.searchEventEmmitter.emit(String(year))
+  }
 }

@@ -7,9 +7,9 @@
           </mat-form-field>
  
       <mat-form-field>
-          <mat-select placeholder="filter by year">
-            <mat-option *ngFor="let year of years" [value]="year.value">
-              {{ year.value }}
+          <mat-select [(ngModel)]="textSearch"  name="yearSearch" placeholder="filter by year">
+            <mat-option *ngFor="let year of years" [value]="year.value"(click)="searchMovieYear(year.value)">
+<span >{{ year.value }}</span>
             </mat-option>
           </mat-select>
         </mat-form-field>
