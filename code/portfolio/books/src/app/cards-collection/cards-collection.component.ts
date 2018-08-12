@@ -22,4 +22,6 @@ export class CardsCollectionComponent implements OnInit {
     this.booksService.getBooks();
   }
 
+ 
+
 }
