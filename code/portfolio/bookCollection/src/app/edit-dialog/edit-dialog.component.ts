@@ -1,6 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { Book } from '../Book';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 export interface DialogData {
    id : number;
@@ -17,9 +18,15 @@ export interface DialogData {
 })
 export class EditDialogComponent implements OnInit {
 book = new Book();
+bookEdit: FormGroup;
 
-  constructor(public dialogRef: MatDialogRef<EditDialogComponent>, @Inject(MAT_DIALOG_DATA) public data: DialogData) {
+  constructor(public dialogRef: MatDialogRef<EditDialogComponent>, @Inject(MAT_DIALOG_DATA) public data: DialogData, private fb: FormBuilder) {
     this.book = data;
+    this.bookEdit = fb.group({
+      title: ['', Validators.required],
+      year: ['', Validators.required],
+      author: ['', Validators.required],
+    });
    }
 
   ngOnInit() {

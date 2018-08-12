@@ -1,3 +1,38 @@
-<p>
-  edit-dialog works!
-</p>
+<div >
+    <div>
+      <section class="form">
+        
+          <mdb-card-body class="mx-4">
+            <!--Header-->
+            <div class="text-center">
+              <h3 class="dark-grey-text mb-5">
+                <strong>Edit</strong>
+              </h3>
+            </div>
+  
+            <form [formGroup]="bookEdit">
+              <div class="md-form">
+                <input type="text" id="title" class="form-control" formControlName="title" mdbInputDirective [(ngModel)]="book.title">
+                <label for="title">Title</label>
+              </div>
+  
+              <div class="md-form pb-3">
+                <input type="text" id="author" formControlName="author" class="form-control" mdbInputDirective [(ngModel)]="book.authors">
+                <label for="author">Author</label>
+              </div>
+
+              <div class="md-form pb-3">
+                <input type="number" id="year" formControlName="year" class="form-control" mdbInputDirective  [(ngModel)]="book.year">
+                <label for="year">year</label>
+              </div>
+
+            </form>
+            <!--Body-->
+  
+            <div class="text-center mb-3">
+              <button type="button" mdbBtn gradient="blue" block="true" rounded="true" class="z-depth-1a waves-light" mdbWavesEffect>Sign in</button>
+            </div>            
+          </mdb-card-body>
+      </section>
+    </div>
+  </div>
