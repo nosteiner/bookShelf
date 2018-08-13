@@ -18,6 +18,9 @@ export class CardsCollectionComponent implements OnInit {
   ngOnInit() {
     this.booksService.booksObservable.subscribe((data)=>{
       this.books = data;
+      console.log("++++++++++++++")
+      console.log(this.books)
+
     });
     this.booksService.getBooks();
   }

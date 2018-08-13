@@ -24,28 +24,48 @@ export class BooksService {
     Observable.subscribe((data) => {
       this.books = this.createBooksArray(data);
       this.booksSubject.next(this.books)
-    }
-
-    )
+    })
   }
- 
+
 
   createBooksArray(data) {
-   let i = 0;
+    let i = 0;
     return data.items.map((book) => {
-     
+
       let newBook = {
         id: i,
         title: book.volumeInfo.title,
-        authors: book.volumeInfo.author,
+        authors: book.volumeInfo.authors,
         year: book.volumeInfo.publishedDate,
         img: book.volumeInfo.imageLinks.thumbnail
       }
       i++;
-      console.log(newBook)
+
       return newBook
     })
-    
+
   }
 
+  updateBook(bookId, book, isNewBook) {
+    //if the book is not new
+    if (isNewBook == false) {
+      let index = this.bookIndexById(bookId)
+      this.books.splice(index, 1, book)
+    } else {
+      //if the book is new
+      this.books.push(book)
+    }
+    this.booksSubject.next(this.books)
+  }
+
+  removeBook(bookId){
+    let index = this.bookIndexById(bookId)
+    this.books.splice(index, 1)
+    
+    this.booksSubject.next(this.books)
+  }
+
+  bookIndexById(bookId){
+    return this.books.findIndex(element => element.id == bookId);
+  }
 }

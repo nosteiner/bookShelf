@@ -15,13 +15,17 @@ import { AppComponent } from './app.component';
 import { CardComponent } from './card/card.component';
 import { CardsCollectionComponent } from './cards-collection/cards-collection.component';
 import { EditDialogComponent } from './edit-dialog/edit-dialog.component';
+import { ToolbarComponent } from './toolbar/toolbar.component';
+import { RemoveDialogComponent } from './remove-dialog/remove-dialog.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CardComponent,
     CardsCollectionComponent,
-    EditDialogComponent
+    EditDialogComponent,
+    ToolbarComponent,
+    RemoveDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +42,7 @@ import { EditDialogComponent } from './edit-dialog/edit-dialog.component';
     
   ],
   schemas: [ NO_ERRORS_SCHEMA ],
-  entryComponents: [EditDialogComponent],
+  entryComponents: [EditDialogComponent, RemoveDialogComponent],
   providers: [],
   bootstrap: [AppComponent]
 })

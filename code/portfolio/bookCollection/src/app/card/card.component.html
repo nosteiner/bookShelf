@@ -1,12 +1,12 @@
-<mat-card class="card"  flex="30">
-  <fa-icon [icon]="faTimes"></fa-icon>
-  <img src="{{book.img}}">
-  <mat-card-content>
-    <p>{{ book.title }}</p>
-    <p>{{ book.year }}</p>
-    <p>{{book.descrShort }}</p>
-  </mat-card-content>
-  <mat-card-actions>
-    <button mat-button (click)="openDialog()">EDIT</button>
-  </mat-card-actions>
-</mat-card>
+
+<div class="view overlay book-card">
+    <img src="{{book.img}}" class="img-fluid " alt="">
+    <div class="mask rgba-black-strong ">
+        <p class="white-text ">{{ book.title }}</p>
+        <p class="white-text ">{{ book.year }}</p>
+        <p class="white-text ">{{book.descrShort }}</p>
+        
+    <button mdbBtn (click)="openEditDialog()">EDIT</button>
+    <button mdbBtn (click)="openRemoveDialog()">REMOVE</button>
+    </div>
+</div>
