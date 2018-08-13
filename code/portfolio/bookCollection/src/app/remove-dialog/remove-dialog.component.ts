@@ -4,12 +4,7 @@ import { Book } from '../Book';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
 
 export interface DialogData {
-  id : string;
-  title : string;
-  authors: string;
-  year :  Number;
-  img : string;
-  isInit: boolean;
+  book: Book;
 }
 
 @Component({
@@ -18,10 +13,10 @@ export interface DialogData {
   styleUrls: ['./remove-dialog.component.scss']
 })
 export class RemoveDialogComponent implements OnInit {
-  book = new Book();
+  book : Book;
 
   constructor(private booksService: BooksService,  public dialogRef: MatDialogRef<RemoveDialogComponent>, @Inject(MAT_DIALOG_DATA) public dialogData: DialogData) { 
-    this.book.edit(this.dialogData)
+    this.book = this.dialogData.book;
   }
 
   ngOnInit() {

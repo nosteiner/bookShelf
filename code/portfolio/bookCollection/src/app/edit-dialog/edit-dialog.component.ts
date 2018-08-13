@@ -7,7 +7,7 @@ import { element } from 'protractor';
 
 
 export interface DialogData {
-  isNew : Boolean;
+  isNewBook : Boolean;
   book : Book;
 }
 
@@ -22,7 +22,7 @@ export class EditDialogComponent implements OnInit {
   isNewBook: Boolean;
 
   constructor(private booksService: BooksService, public dialogRef: MatDialogRef<EditDialogComponent>, @Inject(MAT_DIALOG_DATA) public dialogData: DialogData, private fb: FormBuilder) {
-    this.isNewBook = this.dialogData.isNew;
+    this.isNewBook = this.dialogData.isNewBook;
     this.book = this.dialogData.book;
 
     // let bookIndex = this.booksService.books.findIndex(element => element.id == this.dialogData.book.id)

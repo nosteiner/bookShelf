@@ -25,7 +25,7 @@ export class CardComponent implements OnInit {
     const dialogRef = this.dialog.open(EditDialogComponent, {
       width: '350px',
       data: {book: this.book,
-        isNew: false 
+        isNewBook: false 
       }
     });
   }
@@ -33,7 +33,8 @@ export class CardComponent implements OnInit {
   openRemoveDialog(): void {
     const dialogRef = this.dialog.open(RemoveDialogComponent, {
       width: '250px',
-      data: this.book
+      data:  {book: this.book       
+      }
     });
   }
 }

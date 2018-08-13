@@ -67,7 +67,9 @@ export class BooksService {
   }
 
   removeBook(bookId) {
+   
     let index = this.bookIndexById(bookId)
+    console.log(bookId)
     this.books.splice(index, 1)
 
     this.booksSubject.next(this.books)
