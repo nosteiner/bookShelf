@@ -11,6 +11,7 @@ export interface DialogData {
    authors: string;
    year :  Number;
    img : string;
+   isInit: boolean;
 }
 
 @Component({
@@ -23,33 +24,27 @@ book = new Book();
 bookEdit: FormGroup;
 
 
-  constructor(private booksService: BooksService, public dialogRef: MatDialogRef<EditDialogComponent>, @Inject(MAT_DIALOG_DATA) public data: DialogData, private fb: FormBuilder) {
-    this.book = data;
-    
+  constructor(private booksService: BooksService, public dialogRef: MatDialogRef<EditDialogComponent>, @Inject(MAT_DIALOG_DATA) public dialogData: DialogData, private fb: FormBuilder) {
+   if(this.dialogData.isInit == true){
+    this.book.edit(this.dialogData)
+   }
+   
+
     this.bookEdit = fb.group({
       title: [this.book.title, Validators.required],
       year: [this.book.year, Validators.required],
-      author: [this.book.authors, Validators.required],
-      id: [this.book.id],
-      img: [this.book.img]
+      authors: [this.book.authors, Validators.required]
     });
    }
 
   ngOnInit() {
+   console.log(this.book)
   }
 
   onSubmit(){
-    let isNewBook: boolean = false;
-    if(this.book.id == null){
-      isNewBook = true;
-      this.book = this.bookEdit.value;
-      this.book.id = this.booksService.books.length;
-      this.book.img = "https://i.pinimg.com/564x/7a/22/76/7a22768b8614eedca08e86c0e333b96c.jpg"
-    }else{
-      this.book = this.bookEdit.value;
-    }
-    console.log(this.book.id, this.book, isNewBook)
-    this.booksService.updateBook(this.book.id, this.book, isNewBook)
+   
+    this.book.edit(this.bookEdit.value);
+    this.booksService.updateBooksArray(this.book)
     this.close();
   }
   

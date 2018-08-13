@@ -6,8 +6,8 @@
             <!--Header-->
             <div class="text-center">
               <h3 class="dark-grey-text mb-5">
-                <strong *ngIf="book.id != null">Edit</strong>
-                <strong *ngIf="book.id == null">Add New Book</strong>
+                <strong *ngIf="book.isInit == true">Edit</strong>
+                <strong *ngIf="book.isInit == false">Add New Book</strong>
               </h3>
             </div>
   
@@ -18,8 +18,8 @@
               </div>
   
               <div class="md-form pb-3">
-                <input type="text" id="author" formControlName="author" class="form-control" mdbInputDirective>
-                <label for="author">Author</label>
+                <input type="text" id="authors" formControlName="authors" class="form-control" mdbInputDirective>
+                <label for="authors">Author</label>
               </div>
 
               <div class="md-form pb-3">

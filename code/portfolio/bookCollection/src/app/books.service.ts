@@ -29,43 +29,46 @@ export class BooksService {
 
 
   createBooksArray(data) {
-    let i = 0;
+
     return data.items.map((book) => {
 
-      let newBook = {
-        id: i,
+      let bookData = {
         title: book.volumeInfo.title,
         authors: book.volumeInfo.authors,
         year: book.volumeInfo.publishedDate,
         img: book.volumeInfo.imageLinks.thumbnail
       }
-      i++;
+
+      let newBook = new Book()
+      newBook.edit(bookData);
 
       return newBook
     })
 
   }
 
-  updateBook(bookId, book, isNewBook) {
+  updateBooksArray(book: Book) {
     //if the book is not new
-    if (isNewBook == false) {
-      let index = this.bookIndexById(bookId)
+    if (book.isInit == true) {
+      let index = this.bookIndexById(book.id)
       this.books.splice(index, 1, book)
     } else {
       //if the book is new
+      console.log(this.books)
+      console.log(book)
       this.books.push(book)
     }
     this.booksSubject.next(this.books)
   }
 
-  removeBook(bookId){
+  removeBook(bookId) {
     let index = this.bookIndexById(bookId)
     this.books.splice(index, 1)
-    
+
     this.booksSubject.next(this.books)
   }
 
-  bookIndexById(bookId){
+  bookIndexById(bookId) {
     return this.books.findIndex(element => element.id == bookId);
   }
 }

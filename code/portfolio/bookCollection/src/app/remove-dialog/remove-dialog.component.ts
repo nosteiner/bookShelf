@@ -9,6 +9,7 @@ export interface DialogData {
   authors: string;
   year :  Number;
   img : string;
+  isInit: boolean;
 }
 
 @Component({
@@ -19,11 +20,12 @@ export interface DialogData {
 export class RemoveDialogComponent implements OnInit {
   book = new Book();
 
-  constructor(private booksService: BooksService,  public dialogRef: MatDialogRef<RemoveDialogComponent>, @Inject(MAT_DIALOG_DATA) public data: DialogData) { 
-    this.book = data;
+  constructor(private booksService: BooksService,  public dialogRef: MatDialogRef<RemoveDialogComponent>, @Inject(MAT_DIALOG_DATA) public dialogData: DialogData) { 
+    this.book.edit(this.dialogData)
   }
 
   ngOnInit() {
+    
   }
 
   removeBookHandler(){
