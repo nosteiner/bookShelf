@@ -24,7 +24,9 @@ export class CardComponent implements OnInit {
   openEditDialog(): void {
     const dialogRef = this.dialog.open(EditDialogComponent, {
       width: '350px',
-      data: this.book
+      data: {book: this.book,
+        isNew: false 
+      }
     });
   }
 

@@ -4,7 +4,7 @@ import { Book } from '../Book';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
 
 export interface DialogData {
-  id : number;
+  id : string;
   title : string;
   authors: string;
   year :  Number;

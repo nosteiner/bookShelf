@@ -20,7 +20,10 @@ export class ToolbarComponent implements OnInit {
   openDialog(): void {
     const dialogRef = this.dialog.open(EditDialogComponent, {
       width: '350px',
-      data: this.book
+      data: {
+        isNew: true,
+        book : this.book
+      }
     });
 
   }

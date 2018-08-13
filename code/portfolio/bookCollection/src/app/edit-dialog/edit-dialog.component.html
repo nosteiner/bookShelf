@@ -6,8 +6,8 @@
             <!--Header-->
             <div class="text-center">
               <h3 class="dark-grey-text mb-5">
-                <strong *ngIf="book.isInit == true">Edit</strong>
-                <strong *ngIf="book.isInit == false">Add New Book</strong>
+                <strong *ngIf="book.isNewBook == false">Edit</strong>
+                <strong *ngIf="book.isNewBook == true">Add New Book</strong>
               </h3>
             </div>
   

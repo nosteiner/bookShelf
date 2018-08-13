@@ -3,6 +3,7 @@ import { Book } from './Book';
 import { HttpClient } from '@angular/common/http';
 import { Observable, Subject } from 'rxjs';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -36,10 +37,12 @@ export class BooksService {
         title: book.volumeInfo.title,
         authors: book.volumeInfo.authors,
         year: book.volumeInfo.publishedDate,
-        img: book.volumeInfo.imageLinks.thumbnail
+        img: book.volumeInfo.imageLinks.thumbnail,
+        isNewBook: true
       }
 
       let newBook = new Book()
+      newBook.initialize();
       newBook.edit(bookData);
 
       return newBook
@@ -47,16 +50,18 @@ export class BooksService {
 
   }
 
-  updateBooksArray(book: Book) {
+  updateBooksArray(book: Book, isNewBook: Boolean) {
     //if the book is not new
-    if (book.isInit == true) {
-      let index = this.bookIndexById(book.id)
-      this.books.splice(index, 1, book)
-    } else {
+    if (isNewBook) {
       //if the book is new
       console.log(this.books)
       console.log(book)
       this.books.push(book)
+    } else {
+      let index = this.bookIndexById(book.id)
+      console.log(index)
+      this.books.splice(index, 1, book)
+
     }
     this.booksSubject.next(this.books)
   }
@@ -68,7 +73,15 @@ export class BooksService {
     this.booksSubject.next(this.books)
   }
 
+
+
   bookIndexById(bookId) {
-    return this.books.findIndex(element => element.id == bookId);
+    return this.books.findIndex((element) => {
+      console.log(element.id)
+      console.log(bookId)
+      return element.id == bookId;
+    });
   }
+
+
 }
