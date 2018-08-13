@@ -25,17 +25,6 @@ export class EditDialogComponent implements OnInit {
     this.isNewBook = this.dialogData.isNewBook;
     this.book = this.dialogData.book;
 
-    // let bookIndex = this.booksService.books.findIndex(element => element.id == this.dialogData.book.id)
-    // if(bookIndex == -1){
-    //   this.book = new Book();
-    // }
-    // else{
-    //   this.book = this.booksService.books[bookIndex]
-    // }
-    
-
-
-
     this.bookEdit = fb.group({
       title: [this.book.title, Validators.required],
       year: [this.book.year, Validators.required],
@@ -44,7 +33,7 @@ export class EditDialogComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log(this.book)
+   
   }
 
   onSubmit() {

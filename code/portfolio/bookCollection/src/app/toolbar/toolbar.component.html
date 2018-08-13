@@ -1,7 +1,38 @@
-<mat-toolbar color="primary">
+<!-- <mat-toolbar color="primary">
     <mat-toolbar-row>
       <span>Third Line</span>
       <span class="spacer"></span>
       <button mdbBtn (click)="openDialog()">Add Book</button>
     </mat-toolbar-row>
-    </mat-toolbar>
+    </mat-toolbar> -->
+<!--Navbar-->
+
+
+<mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark indigo">
+
+    <!-- Navbar brand -->
+    <mdb-navbar-brand>booker</mdb-navbar-brand>
+
+    <!-- Collapsible content -->
+    <links>
+
+        <!-- Links -->
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <button mdbBtn (click)="openDialog()">Add Book</button>
+            </li>
+           
+
+            <!-- Dropdown -->
+           
+
+        </ul>
+        <!-- Links -->
+
+<!-- Search form -->
+<app-filter></app-filter>
+    </links>
+    <!-- Collapsible content -->
+
+</mdb-navbar>
+<!--/.Navbar-->

@@ -17,6 +17,8 @@ import { CardsCollectionComponent } from './cards-collection/cards-collection.co
 import { EditDialogComponent } from './edit-dialog/edit-dialog.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { RemoveDialogComponent } from './remove-dialog/remove-dialog.component';
+import { FilterPipe } from './filter.pipe';
+import { FilterComponent } from './filter/filter.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { RemoveDialogComponent } from './remove-dialog/remove-dialog.component';
     CardsCollectionComponent,
     EditDialogComponent,
     ToolbarComponent,
-    RemoveDialogComponent
+    RemoveDialogComponent,
+    FilterPipe,
+    FilterComponent
   ],
   imports: [
     BrowserModule,

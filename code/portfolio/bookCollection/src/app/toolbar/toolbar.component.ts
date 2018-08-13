@@ -11,7 +11,8 @@ import {EditDialogComponent} from '../edit-dialog/edit-dialog.component';
 export class ToolbarComponent implements OnInit {
 
   book: Book = new Book();
-
+  currentSearchTerm: string;
+  
   constructor(public dialog: MatDialog) { }
 
   ngOnInit() {
@@ -25,7 +26,10 @@ export class ToolbarComponent implements OnInit {
         book : new Book()
       }
     });
-
   }
   
+  searchBook(textSearch: string) {
+    console.log(textSearch)
+    this.currentSearchTerm = textSearch;
+  }
 }

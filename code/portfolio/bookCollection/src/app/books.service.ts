@@ -12,8 +12,14 @@ export class BooksService {
   booksSubject: Subject<Book[]> = new Subject<Book[]>();
   booksObservable: Observable<Book[]>;
 
+  searchText: any;
+  searchTextSubject: Subject<string> = new Subject<string>();
+  searchTextObservable: Observable<string>;
+
   constructor(private http: HttpClient) {
     this.booksObservable = this.booksSubject.asObservable();
+    this.searchTextObservable = this.searchTextSubject.asObservable();
+
   }
 
 
@@ -47,43 +53,31 @@ export class BooksService {
 
       return newBook
     })
-
   }
 
   updateBooksArray(book: Book, isNewBook: Boolean) {
-    //if the book is not new
     if (isNewBook) {
-      //if the book is new
-      console.log(this.books)
-      console.log(book)
       this.books.push(book)
     } else {
       let index = this.bookIndexById(book.id)
-      console.log(index)
       this.books.splice(index, 1, book)
-
     }
     this.booksSubject.next(this.books)
   }
 
   removeBook(bookId) {
-   
     let index = this.bookIndexById(bookId)
-    console.log(bookId)
     this.books.splice(index, 1)
-
     this.booksSubject.next(this.books)
   }
 
-
-
   bookIndexById(bookId) {
     return this.books.findIndex((element) => {
-      console.log(element.id)
-      console.log(bookId)
       return element.id == bookId;
     });
   }
 
-
+  sendSearchTextUpdates(searchText){
+    this.searchTextSubject.next(searchText)
+  }
 }

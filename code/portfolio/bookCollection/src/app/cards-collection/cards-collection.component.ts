@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Book} from '../Book'
+import { Book } from '../Book'
 import { BooksService } from '../books.service';
 
 
@@ -10,21 +10,21 @@ import { BooksService } from '../books.service';
 })
 export class CardsCollectionComponent implements OnInit {
   books = new Array<Book>();
-
-
+  currentSearchTerm: string;
 
   constructor(private booksService: BooksService) { }
 
   ngOnInit() {
-    this.booksService.booksObservable.subscribe((data)=>{
+    this.booksService.booksObservable.subscribe((data) => {
       this.books = data;
-      console.log("++++++++++++++")
-      console.log(this.books)
 
     });
     this.booksService.getBooks();
+
+    this.booksService.searchTextObservable.subscribe((searchText) => {
+      this.currentSearchTerm = searchText
+    });
   }
 
- 
 
 }
