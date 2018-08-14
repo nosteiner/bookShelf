@@ -1,12 +1,16 @@
 
-<div class="view overlay book-card">
+<div class="view overlay book-card z-depth-1">
     <img src="{{book.img}}" class="img-fluid " alt="">
-    <div class="mask rgba-black-strong ">
-        <p class="white-text ">{{ book.title }}</p>
-        <p class="white-text ">{{ book.year }}</p>
-        <p class="white-text ">{{book.descrShort }}</p>
-        
-    <button mdbBtn (click)="openEditDialog()">EDIT</button>
-    <button mdbBtn (click)="openRemoveDialog()">REMOVE</button>
+    <div class="inner-card mask rgba-black-strong ">
+       <div class="text">
+        <p class="white-text text-center font-weight-bold">{{ book.title | titlecase | titleConverter }}</p>
+        <p class="white-text text-center font-italic">{{book.authors }}</p>
+        <p class="white-text text-center">{{ book.year }}</p>
+       </div>
+      <div class="buttons">
+            <button mdbBtn class="btn btn-sm"(click)="openEditDialog()">EDIT</button>
+            <button mdbBtn class="btn btn-danger btn-sm" (click)="openRemoveDialog()">REMOVE</button>
+      </div>  
+    
     </div>
 </div>

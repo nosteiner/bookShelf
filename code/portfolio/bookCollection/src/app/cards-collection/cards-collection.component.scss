@@ -1,17 +1,14 @@
 .container {
     display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: 120px;
+    justify-content: flex-start
     
-    .cards-container {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-around;
-        margin-bottom: 15px;
-        margin-top: 15px;
-    }
-    mat-card{
-        background-color: rgb(230, 236, 255);
-    }
- 
-        
 }
+
+.cards-container {
+    margin: auto;
+}
+
 

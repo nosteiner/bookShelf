@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { Book } from './Book';
+import { Book } from '../Book';
 
 @Pipe({
   name: 'filter'
@@ -19,13 +19,6 @@ export class FilterPipe implements PipeTransform {
         return element.title.toLowerCase().includes(currentSearchTerm);
       });
     }
-
-    // if (typeof currentSearchTerm === "number") {
-    //   return books.filter(element => {
-    //     if ((element.year === currentSearchTerm) === true)
-    //       return it;
-    //   });
-    // }
   }
  
 

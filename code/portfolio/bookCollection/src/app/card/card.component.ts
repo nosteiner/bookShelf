@@ -32,7 +32,7 @@ export class CardComponent implements OnInit {
 
   openRemoveDialog(): void {
     const dialogRef = this.dialog.open(RemoveDialogComponent, {
-      width: '250px',
+      width: '350px',
       data:  {book: this.book       
       }
     });

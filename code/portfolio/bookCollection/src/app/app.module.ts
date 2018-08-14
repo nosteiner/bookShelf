@@ -17,8 +17,9 @@ import { CardsCollectionComponent } from './cards-collection/cards-collection.co
 import { EditDialogComponent } from './edit-dialog/edit-dialog.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { RemoveDialogComponent } from './remove-dialog/remove-dialog.component';
-import { FilterPipe } from './filter.pipe';
+import { FilterPipe } from './pipes/filter.pipe';
 import { FilterComponent } from './filter/filter.component';
+import { TitleConverterPipe } from './pipes/title-converter.pipe';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { FilterComponent } from './filter/filter.component';
     ToolbarComponent,
     RemoveDialogComponent,
     FilterPipe,
-    FilterComponent
+    FilterComponent,
+    TitleConverterPipe
   ],
   imports: [
     BrowserModule,

@@ -1,38 +1,22 @@
-<!-- <mat-toolbar color="primary">
-    <mat-toolbar-row>
-      <span>Third Line</span>
-      <span class="spacer"></span>
-      <button mdbBtn (click)="openDialog()">Add Book</button>
-    </mat-toolbar-row>
-    </mat-toolbar> -->
-<!--Navbar-->
+<mdb-navbar SideClass="navbar fixed-top navbar-expand-sm navbar-dark mdb-color darken-3">
 
 
-<mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark indigo">
+  <mdb-navbar-brand>
+    <img src="https://s8.postimg.cc/jtiwezh9h/imageedit_2_2463756714.png" width="80px">
+    <span class="amber-text title ">Books Collection</span>
+  </mdb-navbar-brand>
 
-    <!-- Navbar brand -->
-    <mdb-navbar-brand>booker</mdb-navbar-brand>
+  <links>
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <button mdbBtn (click)="openDialog()">Add Book</button>
+      </li>
+    </ul>
 
-    <!-- Collapsible content -->
-    <links>
+    
 
-        <!-- Links -->
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <button mdbBtn (click)="openDialog()">Add Book</button>
-            </li>
-           
-
-            <!-- Dropdown -->
-           
-
-        </ul>
-        <!-- Links -->
-
-<!-- Search form -->
-<app-filter></app-filter>
-    </links>
-    <!-- Collapsible content -->
+    <app-filter></app-filter>
+  </links>
+  <!-- Collapsible content -->
 
 </mdb-navbar>
-<!--/.Navbar-->
