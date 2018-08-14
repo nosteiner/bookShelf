@@ -1,7 +1,4 @@
-<div class="container">
-  
-      <div class="cards-container" *ngFor="let book of books | filter : currentSearchTerm; let i = index">
-        <app-card [book]="book"></app-card>
-      </div>
- 
-</div>
+
+  <div class="cards-container justify-content-center d-flex flex-wrap">
+    <app-card [book]="book" *ngFor="let book of books | filter : currentSearchTerm; let i = index"></app-card>
+  </div>
