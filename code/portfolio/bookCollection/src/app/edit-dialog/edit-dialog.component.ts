@@ -28,7 +28,7 @@ export class EditDialogComponent implements OnInit {
   
     this.bookEdit = fb.group({
       title:  new FormControl(this.book.title,[Validators.required]),
-      year: new FormControl(this.book.year,[Validators.required, Validators.pattern(/(18|19|20)\d\d$/g)]),
+      year: new FormControl(this.book.year,[Validators.required, Validators.pattern(/^\d{4}\-(0[1-9]|1[012])\-(0[1-9]|[12][0-9]|3[01])$|(18|19|20)\d\d$/g)]),
       authors: new FormControl(this.book.authors,[Validators.required])
     });
   }
