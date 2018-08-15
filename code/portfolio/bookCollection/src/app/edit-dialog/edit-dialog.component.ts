@@ -1,9 +1,8 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { Book } from '../Book';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, FormControl} from '@angular/forms';
 import { BooksService } from '../books.service';
-import { element } from 'protractor';
 
 
 export interface DialogData {
@@ -25,13 +24,18 @@ export class EditDialogComponent implements OnInit {
     this.isNewBook = this.dialogData.isNewBook;
     this.book = this.dialogData.book;
 
+
+  
     this.bookEdit = fb.group({
-      title: [this.book.title, Validators.required],
-      year: [this.book.year, Validators.required],
-      authors: [this.book.authors, Validators.required]
+      title:  new FormControl(this.book.title,[Validators.required]),
+      year: new FormControl(this.book.year,[Validators.required, Validators.pattern(/(18|19|20)\d\d$/g)]),
+      authors: new FormControl(this.book.authors,[Validators.required])
     });
   }
 
+
+ 
+ 
   ngOnInit() {
    
   }
@@ -49,6 +53,5 @@ export class EditDialogComponent implements OnInit {
   close() {
     this.dialogRef.close();
   }
+
 }
-
-

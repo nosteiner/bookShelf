@@ -5,17 +5,12 @@
     <img src="https://s8.postimg.cc/jtiwezh9h/imageedit_2_2463756714.png" width="80px">
     <span class="amber-text title ">Books Collection</span>
   </mdb-navbar-brand>
-
+ 
   <links>
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <button mdbBtn (click)="openDialog()">Add Book</button>
-      </li>
-    </ul>
-
+    <span class="mr-auto"></span>
     
-
     <app-filter></app-filter>
+    <button mdbBtn type="button" (click)="openDialog()" color="deep-orange" class="waves-light" mdbWavesEffect>Add Book</button>
   </links>
   <!-- Collapsible content -->
 

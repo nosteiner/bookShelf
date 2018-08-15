@@ -20,7 +20,8 @@ export class ToolbarComponent implements OnInit {
 
   openDialog(): void {
     const dialogRef = this.dialog.open(EditDialogComponent, {
-      width: '350px',
+      minWidth:'50%',
+      maxHeight: '60%',
       data: {
         isNewBook: true,
         book : new Book()
