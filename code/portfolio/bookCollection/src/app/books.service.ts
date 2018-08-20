@@ -27,7 +27,7 @@ export class BooksService {
     let userId = '103202065418740874149'
     let bookshelfId = '1001'
 
-    let Observable = this.http.get<Array<Book>>('https://www.googleapis.com/books/v1/users/' + userId + '/bookshelves/' + bookshelfId + '/volumes')
+    let Observable = this.http.get<Array<Book>>('https://www.googleapis.com/books/v1/users/' + userId + '/bookshelves/' + bookshelfId + '/volumes?maxResults=40')
     Observable.subscribe((data) => {
       this.books = this.createBooksArray(data);
       this.booksSubject.next(this.books)
